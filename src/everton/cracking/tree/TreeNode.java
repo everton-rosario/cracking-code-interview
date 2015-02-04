@@ -1,7 +1,7 @@
 /**
  * 
  */
-package everton.cracking.linkedlist;
+package everton.cracking.tree;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,12 +11,12 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 /**
  * @author Everton
  */
-public class Node {
-    private Node left;
-    private Node right;
+public class TreeNode {
+    private TreeNode left;
+    private TreeNode right;
     private char data;
     
-    public static void runInLevel(Node position, int level, Map<Integer, StringBuffer>levelMap) {
+    public static void runInLevel(TreeNode position, int level, Map<Integer, StringBuffer>levelMap) {
         
         if (position == null) {
             return;
@@ -34,13 +34,13 @@ public class Node {
     }
     
     public static void main(String[] args) {
-        Node a = new Node();
-        Node b = new Node();
-        Node c = new Node();
-        Node d = new Node();
-        Node e = new Node();
-        Node f = new Node();
-        Node g = new Node();
+        TreeNode a = new TreeNode();
+        TreeNode b = new TreeNode();
+        TreeNode c = new TreeNode();
+        TreeNode d = new TreeNode();
+        TreeNode e = new TreeNode();
+        TreeNode f = new TreeNode();
+        TreeNode g = new TreeNode();
         
         a.data = 'a';
         a.left = b;
@@ -74,19 +74,19 @@ public class Node {
         
     }
 
-    private static void runLeveled(Node head) {
+    private static void runLeveled(TreeNode head) {
         
-        Queue<Node> queue = new ConcurrentLinkedQueue<Node>();
+        Queue<TreeNode> queue = new ConcurrentLinkedQueue<TreeNode>();
         
-        Node node = head;
+        TreeNode node = head;
         
-        Node MARK_NODE = new Node();
+        TreeNode MARK_NODE = new TreeNode();
         
         queue.offer(node);
         queue.offer(MARK_NODE);
         while (true) {
             
-            Node current = queue.poll();
+            TreeNode current = queue.poll();
             if (current != MARK_NODE) {
                 System.out.print(current.data);
                 if (current.left != null)  queue.offer(current.left);
