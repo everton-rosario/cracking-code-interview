@@ -45,7 +45,7 @@ public class FB03 {
         for (int i = 1; i < periods.length; i++) {
             int[] current = periods[i];
             
-            if (p[0] <= current[0] && p[1] >= current[1] && current[1] > p[1]) {  // 
+            if (p[0] <= current[0] && p[1] >= current[1] && current[1] > p[1]) {
                 p[1] = current[1];
                
             
