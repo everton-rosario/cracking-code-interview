@@ -12,7 +12,7 @@ import java.util.Map;
  */
 public class BuracoLetras {
 	
-	private static Map<Character, Integer> holes = new HashMap<>();
+	private static Map<Character, Integer> holes = new HashMap<Character, Integer>();
 	
 	/**
 	 * @param args
