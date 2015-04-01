@@ -4,23 +4,29 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Steps {
+	
+	static int sum = 0;
+	
 	public static void main(String[] args) {
-		int stairs = 6;
+		int stairs = 10;
 		
 		printAllPossibleRecursive(stairs, "");
 		printAllPossibleIterative(stairs);
 		
+		
 	}
-	
+	// nˆ2
 	public static void printAllPossibleRecursive(int steps, String path) {
 		if (steps <= 0) {
-			System.out.println(path);
+			System.out.println((sum++) + " " + path);
+			
 		
 		} else {
 			if (steps >= 1)
 				printAllPossibleRecursive(steps -1, path + " 1");
 			if (steps >= 2)
 				printAllPossibleRecursive(steps -2, path + " 2");
+			
 		}
 	}
 	
