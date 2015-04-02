@@ -72,6 +72,9 @@ public class TreeNode {
         
         runLeveled(a);
         
+        
+        printInLevel(a);
+        
     }
 
     private static void runLeveled(TreeNode head) {
@@ -101,6 +104,22 @@ public class TreeNode {
         
     }
     
+    
+    public static void printInLevel(TreeNode head) {
+    	Queue<TreeNode> queue = new ConcurrentLinkedQueue<TreeNode>();
+    	
+    	queue.offer(head);
+    	while (!queue.isEmpty()) {
+    		TreeNode node = queue.poll();
+    		System.out.print(node.data);
+    		if (node.left != null) { 
+    			queue.offer(node.left); 
+			}
+    		if (node.right != null) {
+    			queue.offer(node.right);
+    		}
+    	}
+    }
     
     
     
