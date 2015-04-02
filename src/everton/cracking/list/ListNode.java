@@ -20,17 +20,36 @@ public class ListNode {
 		n2.next = n3;
 		n3.next = n4;
 		
-		reverseListInPlace(n1);
+		ListNode head = n1;
+		
+		printList(n1);
+		head = reverseListInPlace(head);
+		printList(head);
 	}
 
-	private static void reverseListInPlace(ListNode head) {
-		ListNode secondChanger = head;
-		ListNode firstChanger = head != null ? head.next : null;
-		ListNode headChanger = firstChanger != null ? firstChanger.next : null;
-		
-		if (head.next != null) {
-			
+	private static void printList(ListNode head) {
+		while (head != null) {
+			System.out.println(head.value + " ");
+			head = head.next;
 		}
+		
+	}
+
+	private static ListNode reverseListInPlace(ListNode head) {
+		
+		ListNode first = null;
+		ListNode second = head != null ? head : null;
+		ListNode third = second != null ? second.next : null;
+		
+		while (second != null) {
+			second.next = first;
+			first = second;
+			second = third;
+			third = third != null ? third.next : third;
+		}
+		
+		
+		return first;
 		
 	}
 	
